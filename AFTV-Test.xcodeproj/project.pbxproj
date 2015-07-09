@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		593442181A6287C100864806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442171A6287C100864806 /* AppDelegate.swift */; };
+		5934421A1A6287C100864806 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442191A6287C100864806 /* ViewController.swift */; };
+		5934421D1A6287C100864806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5934421B1A6287C100864806 /* Main.storyboard */; };
+		593442221A6287C100864806 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593442201A6287C100864806 /* LaunchScreen.xib */; };
+		5934422E1A6287C100864806 /* AFTV_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934422D1A6287C100864806 /* AFTV_TestTests.swift */; };
+		5934423A1A628D8900864806 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442391A628D8900864806 /* RestClient.swift */; };
+		597009781AE1879900EFC6C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597009771AE1879900EFC6C1 /* SwiftyJSON.swift */; };
+		599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33141A6D8E6100FB44FA /* Gobot.swift */; };
+		599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */; };
+		59C7B1381B4F00260055220C /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C7B1371B4F00260055220C /* Starscream.framework */; };
+		59EF57381AE6EE1F00671600 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF57371AE6EE1F00671600 /* json.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		593442281A6287C100864806 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5934420A1A6287C100864806 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 593442111A6287C100864806;
+			remoteInfo = "AFTV-Test";
+		};
+		5970096E1AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B3E79E619D48B7F006071F7;
+			remoteInfo = Starscream;
+		};
+		597009701AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B3E79F119D48B7F006071F7;
+			remoteInfo = StarscreamTests;
+		};
+		597009721AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D9C3E35F19E48FF1009FC285;
+			remoteInfo = StarscreamOSX;
+		};
+		597009741AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D9C3E36919E48FF1009FC285;
+			remoteInfo = StarscreamOSXTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		593442121A6287C100864806 /* AFTV-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AFTV-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		593442161A6287C100864806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		593442171A6287C100864806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		593442191A6287C100864806 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5934421C1A6287C100864806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		593442211A6287C100864806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		593442271A6287C100864806 /* AFTV-TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFTV-TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5934422C1A6287C100864806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5934422D1A6287C100864806 /* AFTV_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTV_TestTests.swift; sourceTree = "<group>"; };
+		593442391A628D8900864806 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		597009671AE1831000EFC6C1 /* Starscream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Starscream.xcodeproj; path = ../../Starscream/Starscream.xcodeproj; sourceTree = "<group>"; };
+		597009771AE1879900EFC6C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		599D33141A6D8E6100FB44FA /* Gobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gobot.swift; sourceTree = "<group>"; };
+		599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarscreamAdapter.swift; sourceTree = "<group>"; };
+		59C7B1341B4EFDD10055220C /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../Starscream/build/Debug-iphoneos/Starscream.framework"; sourceTree = "<group>"; };
+		59C7B1371B4F00260055220C /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../Starscream/build/Debug-iphoneos/Starscream.framework"; sourceTree = "<group>"; };
+		59EF57371AE6EE1F00671600 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5934420F1A6287C100864806 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59C7B1381B4F00260055220C /* Starscream.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		593442241A6287C100864806 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		593442091A6287C100864806 = {
+			isa = PBXGroup;
+			children = (
+				59C7B1371B4F00260055220C /* Starscream.framework */,
+				59C7B1341B4EFDD10055220C /* Starscream.framework */,
+				59EF57371AE6EE1F00671600 /* json.swift */,
+				597009771AE1879900EFC6C1 /* SwiftyJSON.swift */,
+				597009671AE1831000EFC6C1 /* Starscream.xcodeproj */,
+				599D33141A6D8E6100FB44FA /* Gobot.swift */,
+				599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */,
+				593442391A628D8900864806 /* RestClient.swift */,
+				593442141A6287C100864806 /* AFTV-Client */,
+				5934422A1A6287C100864806 /* AFTV-ClientTests */,
+				593442131A6287C100864806 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		593442131A6287C100864806 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				593442121A6287C100864806 /* AFTV-Test.app */,
+				593442271A6287C100864806 /* AFTV-TestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		593442141A6287C100864806 /* AFTV-Client */ = {
+			isa = PBXGroup;
+			children = (
+				593442171A6287C100864806 /* AppDelegate.swift */,
+				593442191A6287C100864806 /* ViewController.swift */,
+				5934421B1A6287C100864806 /* Main.storyboard */,
+				593442201A6287C100864806 /* LaunchScreen.xib */,
+				593442151A6287C100864806 /* Supporting Files */,
+			);
+			name = "AFTV-Client";
+			path = "AFTV-Test";
+			sourceTree = "<group>";
+		};
+		593442151A6287C100864806 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				593442161A6287C100864806 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5934422A1A6287C100864806 /* AFTV-ClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				5934422D1A6287C100864806 /* AFTV_TestTests.swift */,
+				5934422B1A6287C100864806 /* Supporting Files */,
+			);
+			name = "AFTV-ClientTests";
+			path = "AFTV-TestTests";
+			sourceTree = "<group>";
+		};
+		5934422B1A6287C100864806 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5934422C1A6287C100864806 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		597009681AE1831000EFC6C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5970096F1AE1831000EFC6C1 /* Starscream.framework */,
+				597009711AE1831000EFC6C1 /* StarscreamTests.xctest */,
+				597009731AE1831000EFC6C1 /* Starscream.framework */,
+				597009751AE1831000EFC6C1 /* StarscreamOSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		593442111A6287C100864806 /* AFTV-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 593442311A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-Test" */;
+			buildPhases = (
+				5934420E1A6287C100864806 /* Sources */,
+				5934420F1A6287C100864806 /* Frameworks */,
+				593442101A6287C100864806 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AFTV-Test";
+			productName = "AFTV-Test";
+			productReference = 593442121A6287C100864806 /* AFTV-Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		593442261A6287C100864806 /* AFTV-TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 593442341A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-TestTests" */;
+			buildPhases = (
+				593442231A6287C100864806 /* Sources */,
+				593442241A6287C100864806 /* Frameworks */,
+				593442251A6287C100864806 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				593442291A6287C100864806 /* PBXTargetDependency */,
+			);
+			name = "AFTV-TestTests";
+			productName = "AFTV-TestTests";
+			productReference = 593442271A6287C100864806 /* AFTV-TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5934420A1A6287C100864806 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Michael Main";
+				TargetAttributes = {
+					593442111A6287C100864806 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					593442261A6287C100864806 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 593442111A6287C100864806;
+					};
+				};
+			};
+			buildConfigurationList = 5934420D1A6287C100864806 /* Build configuration list for PBXProject "AFTV-Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 593442091A6287C100864806;
+			productRefGroup = 593442131A6287C100864806 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 597009681AE1831000EFC6C1 /* Products */;
+					ProjectRef = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				593442111A6287C100864806 /* AFTV-Test */,
+				593442261A6287C100864806 /* AFTV-TestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5970096F1AE1831000EFC6C1 /* Starscream.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Starscream.framework;
+			remoteRef = 5970096E1AE1831000EFC6C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		597009711AE1831000EFC6C1 /* StarscreamTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StarscreamTests.xctest;
+			remoteRef = 597009701AE1831000EFC6C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		597009731AE1831000EFC6C1 /* Starscream.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Starscream.framework;
+			remoteRef = 597009721AE1831000EFC6C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		597009751AE1831000EFC6C1 /* StarscreamOSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StarscreamOSXTests.xctest;
+			remoteRef = 597009741AE1831000EFC6C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		593442101A6287C100864806 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5934421D1A6287C100864806 /* Main.storyboard in Resources */,
+				593442221A6287C100864806 /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		593442251A6287C100864806 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5934420E1A6287C100864806 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5934423A1A628D8900864806 /* RestClient.swift in Sources */,
+				5934421A1A6287C100864806 /* ViewController.swift in Sources */,
+				599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */,
+				59EF57381AE6EE1F00671600 /* json.swift in Sources */,
+				597009781AE1879900EFC6C1 /* SwiftyJSON.swift in Sources */,
+				599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */,
+				593442181A6287C100864806 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		593442231A6287C100864806 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5934422E1A6287C100864806 /* AFTV_TestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		593442291A6287C100864806 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 593442111A6287C100864806 /* AFTV-Test */;
+			targetProxy = 593442281A6287C100864806 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5934421B1A6287C100864806 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5934421C1A6287C100864806 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		593442201A6287C100864806 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				593442211A6287C100864806 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5934422F1A6287C100864806 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		593442301A6287C100864806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		593442321A6287C100864806 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mmain/Documents/iOS-Workspace/Starscream/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "AFTV-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "AFTV-Test";
+			};
+			name = Debug;
+		};
+		593442331A6287C100864806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mmain/Documents/iOS-Workspace/Starscream/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "AFTV-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "AFTV-Test";
+			};
+			name = Release;
+		};
+		593442351A6287C100864806 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AFTV-TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "AFTV-TestTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFTV-Test.app/AFTV-Test";
+			};
+			name = Debug;
+		};
+		593442361A6287C100864806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AFTV-TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "AFTV-TestTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFTV-Test.app/AFTV-Test";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5934420D1A6287C100864806 /* Build configuration list for PBXProject "AFTV-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5934422F1A6287C100864806 /* Debug */,
+				593442301A6287C100864806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		593442311A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				593442321A6287C100864806 /* Debug */,
+				593442331A6287C100864806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		593442341A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				593442351A6287C100864806 /* Debug */,
+				593442361A6287C100864806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5934420A1A6287C100864806 /* Project object */;
+}
