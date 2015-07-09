@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "593442111A6287C100864806"
-               BuildableName = "AFTV-Test.app"
-               BlueprintName = "AFTV-Test"
-               ReferencedContainer = "container:AFTV-Test.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "593442261A6287C100864806"
-               BuildableName = "AFTV-TestTests.xctest"
-               BlueprintName = "AFTV-TestTests"
-               ReferencedContainer = "container:AFTV-Test.xcodeproj">
+               BuildableName = "Anime Fun TV App.app"
+               BlueprintName = "AFTV-Client"
+               ReferencedContainer = "container:AFTV-Client.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "593442261A6287C100864806"
-               BuildableName = "AFTV-TestTests.xctest"
-               BlueprintName = "AFTV-TestTests"
-               ReferencedContainer = "container:AFTV-Test.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "593442111A6287C100864806"
-            BuildableName = "AFTV-Test.app"
-            BlueprintName = "AFTV-Test"
-            ReferencedContainer = "container:AFTV-Test.xcodeproj">
+            BuildableName = "Anime Fun TV App.app"
+            BlueprintName = "AFTV-Client"
+            ReferencedContainer = "container:AFTV-Client.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "593442111A6287C100864806"
-            BuildableName = "AFTV-Test.app"
-            BlueprintName = "AFTV-Test"
-            ReferencedContainer = "container:AFTV-Test.xcodeproj">
+            BuildableName = "Anime Fun TV App.app"
+            BlueprintName = "AFTV-Client"
+            ReferencedContainer = "container:AFTV-Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "593442111A6287C100864806"
-            BuildableName = "AFTV-Test.app"
-            BlueprintName = "AFTV-Test"
-            ReferencedContainer = "container:AFTV-Test.xcodeproj">
+            BuildableName = "Anime Fun TV App.app"
+            BlueprintName = "AFTV-Client"
+            ReferencedContainer = "container:AFTV-Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -16,7 +16,7 @@
 		597009781AE1879900EFC6C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597009771AE1879900EFC6C1 /* SwiftyJSON.swift */; };
 		599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33141A6D8E6100FB44FA /* Gobot.swift */; };
 		599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */; };
-		59C7B1381B4F00260055220C /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C7B1371B4F00260055220C /* Starscream.framework */; };
+		59C7B1441B4F05120055220C /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C7B1431B4F05120055220C /* Starscream.framework */; };
 		59EF57381AE6EE1F00671600 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF57371AE6EE1F00671600 /* json.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,53 +28,23 @@
 			remoteGlobalIDString = 593442111A6287C100864806;
 			remoteInfo = "AFTV-Test";
 		};
-		5970096E1AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B3E79E619D48B7F006071F7;
-			remoteInfo = Starscream;
-		};
-		597009701AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B3E79F119D48B7F006071F7;
-			remoteInfo = StarscreamTests;
-		};
-		597009721AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D9C3E35F19E48FF1009FC285;
-			remoteInfo = StarscreamOSX;
-		};
-		597009741AE1831000EFC6C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D9C3E36919E48FF1009FC285;
-			remoteInfo = StarscreamOSXTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		593442121A6287C100864806 /* AFTV-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AFTV-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		593442121A6287C100864806 /* Anime Fun TV App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anime Fun TV App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		593442161A6287C100864806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		593442171A6287C100864806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		593442191A6287C100864806 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5934421C1A6287C100864806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		593442211A6287C100864806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		593442271A6287C100864806 /* AFTV-TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFTV-TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		593442271A6287C100864806 /* AFTV-ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFTV-ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5934422C1A6287C100864806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5934422D1A6287C100864806 /* AFTV_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTV_TestTests.swift; sourceTree = "<group>"; };
 		593442391A628D8900864806 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
-		597009671AE1831000EFC6C1 /* Starscream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Starscream.xcodeproj; path = ../../Starscream/Starscream.xcodeproj; sourceTree = "<group>"; };
 		597009771AE1879900EFC6C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		599D33141A6D8E6100FB44FA /* Gobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gobot.swift; sourceTree = "<group>"; };
 		599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarscreamAdapter.swift; sourceTree = "<group>"; };
-		59C7B1341B4EFDD10055220C /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../Starscream/build/Debug-iphoneos/Starscream.framework"; sourceTree = "<group>"; };
-		59C7B1371B4F00260055220C /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../Starscream/build/Debug-iphoneos/Starscream.framework"; sourceTree = "<group>"; };
+		59C7B1431B4F05120055220C /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../Starscream/build/Debug-iphoneos/Starscream.framework"; sourceTree = "<group>"; };
 		59EF57371AE6EE1F00671600 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C7B1381B4F00260055220C /* Starscream.framework in Frameworks */,
+				59C7B1441B4F05120055220C /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,11 +70,9 @@
 		593442091A6287C100864806 = {
 			isa = PBXGroup;
 			children = (
-				59C7B1371B4F00260055220C /* Starscream.framework */,
-				59C7B1341B4EFDD10055220C /* Starscream.framework */,
+				59C7B1431B4F05120055220C /* Starscream.framework */,
 				59EF57371AE6EE1F00671600 /* json.swift */,
 				597009771AE1879900EFC6C1 /* SwiftyJSON.swift */,
-				597009671AE1831000EFC6C1 /* Starscream.xcodeproj */,
 				599D33141A6D8E6100FB44FA /* Gobot.swift */,
 				599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */,
 				593442391A628D8900864806 /* RestClient.swift */,
@@ -117,8 +85,8 @@
 		593442131A6287C100864806 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				593442121A6287C100864806 /* AFTV-Test.app */,
-				593442271A6287C100864806 /* AFTV-TestTests.xctest */,
+				593442121A6287C100864806 /* Anime Fun TV App.app */,
+				593442271A6287C100864806 /* AFTV-ClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,8 +100,7 @@
 				593442201A6287C100864806 /* LaunchScreen.xib */,
 				593442151A6287C100864806 /* Supporting Files */,
 			);
-			name = "AFTV-Client";
-			path = "AFTV-Test";
+			path = "AFTV-Client";
 			sourceTree = "<group>";
 		};
 		593442151A6287C100864806 /* Supporting Files */ = {
@@ -150,8 +117,7 @@
 				5934422D1A6287C100864806 /* AFTV_TestTests.swift */,
 				5934422B1A6287C100864806 /* Supporting Files */,
 			);
-			name = "AFTV-ClientTests";
-			path = "AFTV-TestTests";
+			path = "AFTV-ClientTests";
 			sourceTree = "<group>";
 		};
 		5934422B1A6287C100864806 /* Supporting Files */ = {
@@ -162,23 +128,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		597009681AE1831000EFC6C1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5970096F1AE1831000EFC6C1 /* Starscream.framework */,
-				597009711AE1831000EFC6C1 /* StarscreamTests.xctest */,
-				597009731AE1831000EFC6C1 /* Starscream.framework */,
-				597009751AE1831000EFC6C1 /* StarscreamOSXTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		593442111A6287C100864806 /* AFTV-Test */ = {
+		593442111A6287C100864806 /* AFTV-Client */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 593442311A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-Test" */;
+			buildConfigurationList = 593442311A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-Client" */;
 			buildPhases = (
 				5934420E1A6287C100864806 /* Sources */,
 				5934420F1A6287C100864806 /* Frameworks */,
@@ -188,14 +143,14 @@
 			);
 			dependencies = (
 			);
-			name = "AFTV-Test";
+			name = "AFTV-Client";
 			productName = "AFTV-Test";
-			productReference = 593442121A6287C100864806 /* AFTV-Test.app */;
+			productReference = 593442121A6287C100864806 /* Anime Fun TV App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		593442261A6287C100864806 /* AFTV-TestTests */ = {
+		593442261A6287C100864806 /* AFTV-ClientTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 593442341A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-TestTests" */;
+			buildConfigurationList = 593442341A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-ClientTests" */;
 			buildPhases = (
 				593442231A6287C100864806 /* Sources */,
 				593442241A6287C100864806 /* Frameworks */,
@@ -206,9 +161,9 @@
 			dependencies = (
 				593442291A6287C100864806 /* PBXTargetDependency */,
 			);
-			name = "AFTV-TestTests";
+			name = "AFTV-ClientTests";
 			productName = "AFTV-TestTests";
-			productReference = 593442271A6287C100864806 /* AFTV-TestTests.xctest */;
+			productReference = 593442271A6287C100864806 /* AFTV-ClientTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +184,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5934420D1A6287C100864806 /* Build configuration list for PBXProject "AFTV-Test" */;
+			buildConfigurationList = 5934420D1A6287C100864806 /* Build configuration list for PBXProject "AFTV-Client" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -240,50 +195,13 @@
 			mainGroup = 593442091A6287C100864806;
 			productRefGroup = 593442131A6287C100864806 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 597009681AE1831000EFC6C1 /* Products */;
-					ProjectRef = 597009671AE1831000EFC6C1 /* Starscream.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				593442111A6287C100864806 /* AFTV-Test */,
-				593442261A6287C100864806 /* AFTV-TestTests */,
+				593442111A6287C100864806 /* AFTV-Client */,
+				593442261A6287C100864806 /* AFTV-ClientTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		5970096F1AE1831000EFC6C1 /* Starscream.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Starscream.framework;
-			remoteRef = 5970096E1AE1831000EFC6C1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		597009711AE1831000EFC6C1 /* StarscreamTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = StarscreamTests.xctest;
-			remoteRef = 597009701AE1831000EFC6C1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		597009731AE1831000EFC6C1 /* Starscream.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Starscream.framework;
-			remoteRef = 597009721AE1831000EFC6C1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		597009751AE1831000EFC6C1 /* StarscreamOSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = StarscreamOSXTests.xctest;
-			remoteRef = 597009741AE1831000EFC6C1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		593442101A6287C100864806 /* Resources */ = {
@@ -332,7 +250,7 @@
 /* Begin PBXTargetDependency section */
 		593442291A6287C100864806 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 593442111A6287C100864806 /* AFTV-Test */;
+			target = 593442111A6287C100864806 /* AFTV-Client */;
 			targetProxy = 593442281A6287C100864806 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -444,9 +362,9 @@
 					"$(inherited)",
 					"/Users/mmain/Documents/iOS-Workspace/Starscream/build/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = "AFTV-Test/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AFTV-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "AFTV-Test";
+				PRODUCT_NAME = "Anime Fun TV App";
 			};
 			name = Debug;
 		};
@@ -458,9 +376,9 @@
 					"$(inherited)",
 					"/Users/mmain/Documents/iOS-Workspace/Starscream/build/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = "AFTV-Test/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AFTV-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "AFTV-Test";
+				PRODUCT_NAME = "Anime Fun TV App";
 			};
 			name = Release;
 		};
@@ -478,7 +396,7 @@
 				);
 				INFOPLIST_FILE = "AFTV-TestTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "AFTV-TestTests";
+				PRODUCT_NAME = "AFTV-ClientTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFTV-Test.app/AFTV-Test";
 			};
 			name = Debug;
@@ -493,7 +411,7 @@
 				);
 				INFOPLIST_FILE = "AFTV-TestTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "AFTV-TestTests";
+				PRODUCT_NAME = "AFTV-ClientTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFTV-Test.app/AFTV-Test";
 			};
 			name = Release;
@@ -501,7 +419,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5934420D1A6287C100864806 /* Build configuration list for PBXProject "AFTV-Test" */ = {
+		5934420D1A6287C100864806 /* Build configuration list for PBXProject "AFTV-Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5934422F1A6287C100864806 /* Debug */,
@@ -510,7 +428,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		593442311A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-Test" */ = {
+		593442311A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				593442321A6287C100864806 /* Debug */,
@@ -519,7 +437,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		593442341A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-TestTests" */ = {
+		593442341A6287C100864806 /* Build configuration list for PBXNativeTarget "AFTV-ClientTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				593442351A6287C100864806 /* Debug */,
