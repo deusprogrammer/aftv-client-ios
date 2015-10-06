@@ -16,7 +16,7 @@
 		5934423A1A628D8900864806 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442391A628D8900864806 /* RestClient.swift */; };
 		599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33141A6D8E6100FB44FA /* Gobot.swift */; };
 		599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */; };
-		59EF57381AE6EE1F00671600 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF57371AE6EE1F00671600 /* json.swift */; };
+		59EF57381AE6EE1F00671600 /* NBJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF57371AE6EE1F00671600 /* NBJson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		593442391A628D8900864806 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		599D33141A6D8E6100FB44FA /* Gobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gobot.swift; sourceTree = "<group>"; };
 		599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarscreamAdapter.swift; sourceTree = "<group>"; };
-		59EF57371AE6EE1F00671600 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		59EF57371AE6EE1F00671600 /* NBJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBJson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				593372F61BC36C7700DFDB45 /* Starscream.framework */,
-				59EF57371AE6EE1F00671600 /* json.swift */,
+				59EF57371AE6EE1F00671600 /* NBJson.swift */,
 				599D33141A6D8E6100FB44FA /* Gobot.swift */,
 				599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */,
 				593442391A628D8900864806 /* RestClient.swift */,
@@ -228,7 +228,7 @@
 				5934423A1A628D8900864806 /* RestClient.swift in Sources */,
 				5934421A1A6287C100864806 /* ViewController.swift in Sources */,
 				599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */,
-				59EF57381AE6EE1F00671600 /* json.swift in Sources */,
+				59EF57381AE6EE1F00671600 /* NBJson.swift in Sources */,
 				599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */,
 				593442181A6287C100864806 /* AppDelegate.swift in Sources */,
 			);
