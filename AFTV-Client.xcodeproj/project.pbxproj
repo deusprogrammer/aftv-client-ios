@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		593372F71BC36C7700DFDB45 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593372F61BC36C7700DFDB45 /* Starscream.framework */; };
 		593442181A6287C100864806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442171A6287C100864806 /* AppDelegate.swift */; };
 		5934421A1A6287C100864806 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442191A6287C100864806 /* ViewController.swift */; };
 		5934421D1A6287C100864806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5934421B1A6287C100864806 /* Main.storyboard */; };
 		593442221A6287C100864806 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593442201A6287C100864806 /* LaunchScreen.xib */; };
 		5934422E1A6287C100864806 /* AFTV_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934422D1A6287C100864806 /* AFTV_TestTests.swift */; };
 		5934423A1A628D8900864806 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442391A628D8900864806 /* RestClient.swift */; };
-		597009781AE1879900EFC6C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597009771AE1879900EFC6C1 /* SwiftyJSON.swift */; };
 		599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33141A6D8E6100FB44FA /* Gobot.swift */; };
 		599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */; };
-		59C7B1441B4F05120055220C /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C7B1431B4F05120055220C /* Starscream.framework */; };
 		59EF57381AE6EE1F00671600 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF57371AE6EE1F00671600 /* json.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		593372F61BC36C7700DFDB45 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../Starscream/build/Debug-iphoneos/Starscream.framework"; sourceTree = "<group>"; };
 		593442121A6287C100864806 /* Anime Fun TV App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anime Fun TV App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		593442161A6287C100864806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		593442171A6287C100864806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,10 +41,8 @@
 		5934422C1A6287C100864806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5934422D1A6287C100864806 /* AFTV_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTV_TestTests.swift; sourceTree = "<group>"; };
 		593442391A628D8900864806 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
-		597009771AE1879900EFC6C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		599D33141A6D8E6100FB44FA /* Gobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gobot.swift; sourceTree = "<group>"; };
 		599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarscreamAdapter.swift; sourceTree = "<group>"; };
-		59C7B1431B4F05120055220C /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../Starscream/build/Debug-iphoneos/Starscream.framework"; sourceTree = "<group>"; };
 		59EF57371AE6EE1F00671600 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C7B1441B4F05120055220C /* Starscream.framework in Frameworks */,
+				593372F71BC36C7700DFDB45 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,9 +68,8 @@
 		593442091A6287C100864806 = {
 			isa = PBXGroup;
 			children = (
-				59C7B1431B4F05120055220C /* Starscream.framework */,
+				593372F61BC36C7700DFDB45 /* Starscream.framework */,
 				59EF57371AE6EE1F00671600 /* json.swift */,
-				597009771AE1879900EFC6C1 /* SwiftyJSON.swift */,
 				599D33141A6D8E6100FB44FA /* Gobot.swift */,
 				599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */,
 				593442391A628D8900864806 /* RestClient.swift */,
@@ -172,7 +169,8 @@
 		5934420A1A6287C100864806 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Michael Main";
 				TargetAttributes = {
 					593442111A6287C100864806 = {
@@ -231,7 +229,6 @@
 				5934421A1A6287C100864806 /* ViewController.swift in Sources */,
 				599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */,
 				59EF57381AE6EE1F00671600 /* json.swift in Sources */,
-				597009781AE1879900EFC6C1 /* SwiftyJSON.swift in Sources */,
 				599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */,
 				593442181A6287C100864806 /* AppDelegate.swift in Sources */,
 			);
@@ -295,6 +292,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -364,6 +362,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AFTV-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.trinary.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Anime Fun TV App";
 			};
 			name = Debug;
@@ -378,6 +377,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AFTV-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.trinary.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Anime Fun TV App";
 			};
 			name = Release;

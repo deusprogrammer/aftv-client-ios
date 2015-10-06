@@ -8,16 +8,6 @@
 
 import Foundation
 
-func convertToJSON(value: AnyObject, prettyPrinted: Bool = false) -> NSData? {
-    var options = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
-    if NSJSONSerialization.isValidJSONObject(value) {
-        if let data = NSJSONSerialization.dataWithJSONObject(value, options: options, error: nil) {
-            return data
-        }
-    }
-    return nil
-}
-
 func createQueryString(pairs: Dictionary<String, AnyObject>) -> String {
     var query = ""
     var sep = "?"
@@ -32,7 +22,7 @@ func createQueryString(pairs: Dictionary<String, AnyObject>) -> String {
 
 class RestClient {
     var request : NSMutableURLRequest = NSMutableURLRequest()
-    var responseBody = Dictionary<String, JSON>()
+    var responseBody : Any?
     var error : NSError!
     
     var completed : Bool = false
@@ -52,14 +42,12 @@ class RestClient {
         
         url += uri
         
-        var json : NSData
-        
         if (!body.isEmpty) {
             if (method != "GET" && method != "DELETE") {
-                var json = convertToJSON(body)!
-                request.HTTPBody = json
-                addHeader("Content-Length", value: "\(json.length)")
-                println("LENGTH: \(json.length) bytes")
+                let json = NBJSON.Parser.stringify(body)
+                request.HTTPBody = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+                addHeader("Content-Length", value: "\(json.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))")
+                print("LENGTH: \(json.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)) bytes")
             } else {
                 url += createQueryString(body)
             }
@@ -68,7 +56,7 @@ class RestClient {
         addHeader("Accept", value: "application/json")
         addHeader("Content-Type", value: "application/json")
         
-        println("URL: \(url)")
+        print("URL: \(url)")
         
         request.URL = NSURL(string: url)
         request.HTTPMethod = method
@@ -83,63 +71,43 @@ class RestClient {
         return self
     }
     
-    class func get(#hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
+    class func get(hostname hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
         return RestClient(method: "GET", hostname: hostname, port: port, uri: uri, headers: headers, body: query, ssl: ssl)
     }
     
-    class func put(#hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
+    class func put(hostname hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
         return RestClient(method: "PUT", hostname: hostname, port: port, uri: uri, headers: headers, body: body, ssl: ssl)
     }
     
-    class func post(#hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
+    class func post(hostname hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
         return RestClient(method: "POST", hostname: hostname, port: port, uri: uri, headers: headers, body: body, ssl: ssl)
     }
     
-    class func delete(#hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
+    class func delete(hostname hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
         return RestClient(method: "DELETE", hostname: hostname, port: port, uri: uri, headers: headers, body: query, ssl: ssl)
     }
     
-    func sendSync() -> RestClient {
-        var error : NSError?
-        var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: &error)
+    func sendSync() throws -> RestClient {
+        let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
         
-        if (error != nil || data == nil) {
-            println("ERROR: \(error?.description)")
-            completed = true
-            return self
-        }
-        
-        var jsonError : NSError?
-        var json = JSON(data: data!, error: &jsonError)
-        
-        if (jsonError != nil) {
-            println("ERROR: \(jsonError?.description)")
-        }
-        
-        responseBody = json.dictionaryValue
-        completed = true
+        let jsonString : String = String(data: data, encoding: NSUTF8StringEncoding)!
+        self.responseBody = NBJSON.Parser.parseJson(jsonString)
+        self.completed = true
         
         return self
     }
     
     func sendAsync() -> RestClient {
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             if (error != nil || data == nil) {
-                println("ERROR: \(error?.description)")
+                print("ERROR: \(error?.description)")
                 self.responseBody = [:]
                 self.completed = true
                 return
             }
             
-            var jsonError : NSError?
-            var json = JSON(data: data!, error: &jsonError)
-            
-            if (jsonError != nil) {
-                println("ERROR: \(jsonError?.description)")
-                self.responseBody = [:]
-            }
-            
-            self.responseBody = json.dictionaryValue
+            let jsonString : String = String(data: data!, encoding: NSUTF8StringEncoding)!
+            self.responseBody = NBJSON.Parser.parseJson(jsonString)
             self.completed = true
         })
         
@@ -154,7 +122,7 @@ class RestClient {
         while !completed {}
     }
     
-    func getResponseBody() -> Dictionary<String,JSON> {
+    func getResponseBody() -> Any? {
         return responseBody
     }
 }

@@ -16,71 +16,71 @@ class STOMPClient {
     }
     
     func websocketDidReceiveData(data: NSData) {
-        println("Received data: \(data.length)")
+        print("Received data: \(data.length)")
     }
     
     func connect(host: String, version: String) {
-        var command = STOMPConnect(host: host, version: version)
-        println(">>\(command.getCommandString())~")
+        let command = STOMPConnect(host: host, version: version)
+        print(">>\(command.getCommandString())~")
         socket.write(command.getCommandString())
     }
     
     func subscribe(destination: String, id: String = "0", ack : String = "auto", body : String? = nil) {
-        var command = STOMPSubscribe(id: id, destination: destination, ack: ack, body: body)
-        println(">>\(command.getCommandString())~")
+        let command = STOMPSubscribe(id: id, destination: destination, ack: ack, body: body)
+        print(">>\(command.getCommandString())~")
         socket.write(command.getCommandString())
     }
     
     func unsubscribe(destination: String, id: String = "0", body : String? = nil) {
-        var command = STOMPUnsubscribe(id: id, body: body)
-        println(">>\(command.getCommandString())~")
+        let command = STOMPUnsubscribe(id: id, body: body)
+        print(">>\(command.getCommandString())~")
         socket.write(command.getCommandString())
     }
     
     func send(destination : String, contentType : String = "text/plain", body: String) {
-        var command = STOMPSend(destination: destination, contentType: contentType, body: body)
-        println(">>\(command.getCommandString())~")
+        let command = STOMPSend(destination: destination, contentType: contentType, body: body)
+        print(">>\(command.getCommandString())~")
         socket.write(command.getCommandString())
     }
     
     func ack(id: String, transaction: String! = nil) {
-        var command = STOMPAck(id: id, transaction: transaction)
-        println(">>\(command.getCommandString())")
+        let command = STOMPAck(id: id, transaction: transaction)
+        print(">>\(command.getCommandString())")
         socket.write(command.getCommandString())
     }
     
     func nack(id: String, transaction: String! = nil) {
         var command = STOMPNack(id: id, transaction: transaction)
-        println(">>\(command.getCommandString())")
+        print(">>\(command.getCommandString())")
         socket.write(command.getCommandString())
     }
     
     func disconnect(receipt : String) {
-        var command = STOMPDisconnect(receipt: receipt)
-        println(">>\(command.getCommandString())")
+        let command = STOMPDisconnect(receipt: receipt)
+        print(">>\(command.getCommandString())")
         socket.write(command.getCommandString())
     }
     
     func begin(transaction : String) {
-        var command = STOMPBegin(transaction: transaction)
-        println(">>\(command.getCommandString())")
+        let command = STOMPBegin(transaction: transaction)
+        print(">>\(command.getCommandString())")
         socket.write(command.getCommandString())
     }
     
     func commit(transaction : String) {
-        var command = STOMPCommit(transaction: transaction)
-        println(">>\(command.getCommandString())")
+        let command = STOMPCommit(transaction: transaction)
+        print(">>\(command.getCommandString())")
         socket.write(command.getCommandString())
     }
     
     func abort(transaction : String) {
-        var command = STOMPAbort(transaction: transaction)
-        println(">>\(command.getCommandString())")
+        let command = STOMPAbort(transaction: transaction)
+        print(">>\(command.getCommandString())")
         socket.write(command.getCommandString())
     }
 }
 
-class STOMPFrame : Printable {
+class STOMPFrame : CustomStringConvertible {
     var command : STOMPCommand!
     var headers = Dictionary<String, String>()
     var body : String!
@@ -91,7 +91,7 @@ class STOMPFrame : Printable {
     
     init(stompString : String) {
         var sections = stompString.componentsSeparatedByString("\n\n")
-        var headers = sections[0]
+        let headers = sections[0]
         self.body = sections[1]
         var lines = headers.componentsSeparatedByString("\n")
         

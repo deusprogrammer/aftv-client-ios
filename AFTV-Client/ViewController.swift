@@ -33,25 +33,29 @@ class ViewController: UIViewController, STOMPClientDelegate {
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             dispatch_async(
                 dispatch_get_main_queue()) {
-                    self.refreshUI(self.PID)
+                    do {
+                        try self.refreshUI(self.PID)
+                    } catch let error as NSError {
+                        print("Error: " + error.description)
+                    }
             }
         }
     }
     
     func onConnect() {
-        println("websocket is connected")
+        print("websocket is connected")
         client.connect("localhost", version: "1.2")
     }
     
     func onDisconnect(error: NSError?) {
         if let e = error {
-            println("websocket is disconnected: \(e.localizedDescription)")
+            print("websocket is disconnected: \(e.localizedDescription)")
         }
     }
     
     func onReceive(message: String) {
-        println("<<\(message)\n\n")
-        var frame = STOMPFrame(stompString: message)
+        print("<<\(message)\n\n")
+        let frame = STOMPFrame(stompString: message)
         
         if frame.command == STOMPCommand.CONNECTED {
             client.subscribe(getQueue())
@@ -64,7 +68,7 @@ class ViewController: UIViewController, STOMPClientDelegate {
         } else if frame.command == STOMPCommand.RECEIPT {
             
         } else if frame.command == STOMPCommand.ERROR {
-            println("An error has occured: \(frame.body)")
+            print("An error has occured: \(frame.body)")
         }
     }
 
@@ -74,20 +78,24 @@ class ViewController: UIViewController, STOMPClientDelegate {
     }
 
     @IBAction func sliderMoved(sender: UISlider) {
-        var sliderValue : Int = Int(round(sender.value))
+        let sliderValue : Int = Int(round(sender.value))
         ratingSlider.value = Float(sliderValue)
         
         ratingLabel.text = "\(sliderValue)/10"
     }
     
     @IBAction func submitVote(sender: UIButton) {
-        var sliderValue : Int = Int(round(ratingSlider.value))
-        vote(PID, vid: currentId!, comment: "", rating: sliderValue)
+        let sliderValue : Int = Int(round(ratingSlider.value))
+        do {
+            try vote(PID, vid: currentId!, comment: "", rating: sliderValue)
+        } catch let error as NSError {
+            print(error.description)
+        }
     }
     
-    func vote(pid: String, vid : String, comment: String, rating : Int) {
+    func vote(pid: String, vid : String, comment: String, rating : Int) throws {
         // RestClient async post
-        var dict = RestClient.post(
+        try RestClient.post(
             hostname: "localhost",
             port: "8080",
             uri: "/aftv-backend/v1/contest/\(pid)/entry/\(vid)/vote",
@@ -99,33 +107,35 @@ class ViewController: UIViewController, STOMPClientDelegate {
     }
     
     // Make a first REST call to get the initial state of the contest
-    func refreshUI(pid : String) {
+    func refreshUI(pid : String) throws {
         ratingSlider.value = 0
         // RestClient sync get
-        var entry = RestClient.get(
+        var entry = try RestClient.get(
             hostname: "localhost",
             port: "8080",
             uri: "/aftv-backend/v1/contest/\(PID)/nowPlaying"
-        ).sendSync().getResponseBody()
+        ).sendSync().getResponseBody() as! Dictionary<String, Any>
         
         titleLabel.text = "Not active";
         currentId = nil;
         
+        // Update title and artist
         var title = "Untitled"
         if(entry["title"] != nil) {
-            title = entry["title"]!.stringValue
+            title = entry["title"] as! String
         }
         var artist = "Anonymous"
         if (entry["artist"] != nil) {
-            artist = entry["artist"]!.stringValue
+            artist = entry["artist"] as! String
         }
+        
         // Update thumbnail image
-        var links = entry["links"]!.arrayValue
+        let links = entry["links"] as! Array<Any>
         var href = ""
         for link in links {
-            var obj = link.dictionaryValue
-            if obj["rel"]!.stringValue == "thumbnail" {
-                href = obj["href"]!.stringValue
+            var obj = link as! Dictionary<String, Any>
+            if obj["rel"] as! String == "thumbnail" {
+                href = obj["href"] as! String
                 break
             }
         }
@@ -134,7 +144,7 @@ class ViewController: UIViewController, STOMPClientDelegate {
         }
         
         titleLabel.text = "\(artist)- \(title)"
-        currentId = entry["uuid"]?.stringValue
+        currentId = entry["uuid"] as? String
     }
     
     // On websocket message, update the app
@@ -154,7 +164,7 @@ class ViewController: UIViewController, STOMPClientDelegate {
         }
  
         // Update thumbnail image
-        var links = entry["links"] as! Array<Any>
+        let links = entry["links"] as! Array<Any>
         var href = ""
         for link in links {
             var obj = link as! Dictionary<String, Any>
@@ -180,9 +190,9 @@ class ViewController: UIViewController, STOMPClientDelegate {
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
             if (error != nil || data == nil) {
-                println("ERROR: \(error?.description)")
+                print("ERROR: \(error?.description)")
             }
-            view.thumbnailImage.image = UIImage(data: data)
+            view.thumbnailImage.image = UIImage(data: data!)
         }
     }
     

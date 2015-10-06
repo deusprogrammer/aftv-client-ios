@@ -13,21 +13,22 @@ import Foundation
 // Borrowed from http://benscheirman.com/2014/06/regex-in-swift/
 // TODO Replace this later
 class Regex {
-    let internalExpression: NSRegularExpression
-    let pattern: String
+    var internalExpression: NSRegularExpression?
     
     init(_ pattern: String) {
-        self.pattern = pattern
-        var error: NSError?
-        self.internalExpression = NSRegularExpression(pattern: pattern, options: .CaseInsensitive, error: &error)!
+        self.internalExpression = nil
+        do {
+            self.internalExpression = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
+        } catch let error as NSError {
+            print(error.description)
+        }
     }
     
     func test(input: String) -> Bool {
-        let matches = self.internalExpression.matchesInString(input, options: nil, range:NSMakeRange(0, count(input)))
+        let matches = self.internalExpression!.matchesInString(input, options: [], range:NSMakeRange(0, input.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)))
         return matches.count > 0
     }
 }
-
 
 // Needed to keep track of blob depth
 struct Stack<T> {
@@ -36,7 +37,7 @@ struct Stack<T> {
         items.append(item)
     }
     mutating func pop() -> T {
-        var item : T = items.removeLast()
+        let item : T = items.removeLast()
         return item
     }
     func peek() -> T {
@@ -83,9 +84,67 @@ class NBJSON {
         case READING_LIST_VALUE
     }
     
+    class Marshaller {
+        
+    }
+    
+    class Demarshaller {
+        
+    }
+    
     class Parser {
+        class func stringify(dictionary : NSDictionary) -> String {
+            var jsonString : String;
+            var seperator : String = ""
+            
+            jsonString = "{";
+            for (key, value) in dictionary {
+                if (value is NSArray) {
+                    jsonString += "\(seperator)\"\(key)\":\(stringify(value as! NSArray))"
+                } else if (value is NSDictionary) {
+                    jsonString += "\(seperator)\"\(key)\":\(stringify(value as! NSDictionary))"
+                } else if (value is String) {
+                    jsonString += "\(seperator)\"\(key)\":\"\(value)\""
+                } else if (value is Int || value is Float || value is Double) {
+                    jsonString += "\(seperator)\"\(key)\":\(value)"
+                } else if (value is Bool) {
+                    let boolValue = (value as! Bool) ? "true" : "false"
+                    jsonString += "\(seperator)\"\(key)\":\(boolValue)"
+                }
+                seperator = ","
+            }
+            jsonString += "}"
+            
+            return jsonString
+        }
+        
+        class func stringify(list : NSArray) -> String {
+            var jsonString : String;
+            var seperator : String = ""
+            
+            jsonString = "{";
+            for value in list {
+                if (value is NSArray) {
+                    jsonString += stringify(value as! NSArray)
+                } else if (value is NSDictionary) {
+                    jsonString += stringify(value as! NSDictionary)
+                } else if (value is String) {
+                    jsonString += "\(seperator)\"\(value)\""
+                } else if (value is Int || value is Float || value is Double) {
+                    jsonString += "\(seperator)\(value)"
+                } else if (value is Bool) {
+                    let boolValue = (value as! Bool) ? "true" : "false"
+                    jsonString += "\(seperator)\(boolValue)"
+                }
+                seperator = ","
+            }
+            jsonString += "}"
+            
+            return jsonString
+        }
+        
         class func parseJson(jsonString : String) -> Any? {
-            var jsonStringArray : Array<Character> = Array(jsonString)
+            let jsonStringArray : Array<Character> = Array(jsonString.characters)
             var index : Int
             var expression : Array<Character>
             var type : JsonType
@@ -149,7 +208,7 @@ class NBJSON {
                     }
                     
                     if (c == ",") {
-                        var type = determineType(String(value).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
+                        let type = determineType(String(value).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
                         switch (type) {
                         case .INT:
                             list.append((value as NSString).integerValue)
@@ -230,7 +289,7 @@ class NBJSON {
                     } else if (c == "{") {
                         (index, expression, type) = extractJsonExpression(jsonString: jsonString, startIndex: i)
                         i = index
-                        var obj = parseJsonObject(expression)
+                        let obj = parseJsonObject(expression)
                         object[key] = obj
                         key = ""
                         value = ""
@@ -238,7 +297,7 @@ class NBJSON {
                     } else if (c == "[") {
                         (index, expression, type) = extractJsonExpression(jsonString: jsonString, startIndex: i)
                         i = index
-                        var list = parseJsonList(expression)
+                        let list = parseJsonList(expression)
                         object[key] = list
                         key = ""
                         value = ""
@@ -265,7 +324,7 @@ class NBJSON {
                     }
                     
                     if (c == ",") {
-                        var type = determineType(String(value).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
+                        let type = determineType(String(value).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
                         switch (type) {
                         case .INT:
                             object[key] = (value as NSString).integerValue
@@ -302,14 +361,14 @@ class NBJSON {
             return object
         }
         
-        private class func extractJsonExpression(#jsonString : Array<Character>, startIndex index : Int = 0) -> (Int, Array<Character>, JsonType) {
+        private class func extractJsonExpression(jsonString jsonString : Array<Character>, startIndex index : Int = 0) -> (Int, Array<Character>, JsonType) {
             var typeStack = Stack<String>()
             var jsonSubString = Array<Character>()
             var objectStarted = false
             var type : JsonType = JsonType.NONE;
             
             for var i = index; i < jsonString.count; i++ {
-                var c = jsonString[i]
+                let c = jsonString[i]
                 
                 if (objectStarted) {
                     jsonSubString.append(c)
@@ -353,11 +412,11 @@ class NBJSON {
         }
         
         private class func determineType(value: String) -> JsonType {
-            var intRegex = "^[0-9]+$"
-            var floatRegex = "^[0-9]+\\.+[0-9]+$"
-            var boolRegex = "^(true|false)$"
-            var nullRegex = "^null$"
-            var stringRegex = "^\".*\"$"
+            let intRegex = "^[0-9]+$"
+            let floatRegex = "^[0-9]+\\.+[0-9]+$"
+            let boolRegex = "^(true|false)$"
+            let nullRegex = "^null$"
+            let stringRegex = "^\".*\"$"
             
             if (Regex(floatRegex).test(value)) {
                 return JsonType.FLOAT
@@ -384,34 +443,34 @@ class NBJSON {
             }
         }
         
-        private class func printJsonObject(#json: Dictionary<String, Any>, level: Int = 0) {
+        private class func printJsonObject(json json: Dictionary<String, Any>, level: Int = 0) {
             for (key, value) in json {
                 tabs(level)
                 print("\(key) => ")
                 if (value is Array<Any>) {
-                    println()
+                    print("\n")
                     printJsonList(json: value as! Array<Any>, level: level + 1)
                 } else if (value is Dictionary<String, Any>) {
-                    println()
+                    print("\n")
                     printJsonObject(json: value as! Dictionary<String, Any>, level: level + 1)
                 } else {
-                    println(value)
+                    print(value)
                 }
             }
         }
         
-        private class func printJsonList(#json: Array<Any>, level: Int = 0) {
-            for (index, value) in enumerate(json) {
+        private class func printJsonList(json json: Array<Any>, level: Int = 0) {
+            for (index, value) in json.enumerate() {
                 tabs(level)
                 print("[\(index)] => ")
                 if (value is Array<Any>) {
-                    println()
+                    print("\n")
                     printJsonList(json: value as! Array<Any>, level: level + 1)
                 } else if (value is Dictionary<String, Any>) {
-                    println()
+                    print("\n")
                     printJsonObject(json: value as! Dictionary<String, Any>, level: level + 1)
                 } else {
-                    println(value)
+                    print("\n")
                 }
             }
         }
