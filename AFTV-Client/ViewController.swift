@@ -31,13 +31,8 @@ class ViewController: UIViewController, STOMPClientDelegate {
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            dispatch_async(
-                dispatch_get_main_queue()) {
-                    do {
-                        try self.refreshUI(self.PID)
-                    } catch let error as NSError {
-                        print("Error: " + error.description)
-                    }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.refreshUI(self.PID)
             }
         }
     }
@@ -74,7 +69,6 @@ class ViewController: UIViewController, STOMPClientDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func sliderMoved(sender: UISlider) {
@@ -86,114 +80,43 @@ class ViewController: UIViewController, STOMPClientDelegate {
     
     @IBAction func submitVote(sender: UIButton) {
         let sliderValue : Int = Int(round(ratingSlider.value))
-        do {
-            try vote(PID, vid: currentId!, comment: "", rating: sliderValue)
-        } catch let error as NSError {
-            print(error.description)
-        }
+        vote(PID, vid: currentId!, comment: "", rating: sliderValue)
     }
     
-    func vote(pid: String, vid : String, comment: String, rating : Int) throws {
-        // RestClient async post
-        try RestClient.post(
-            hostname: "localhost",
-            port: "8080",
-            uri: "/aftv-backend/v1/contest/\(pid)/entry/\(vid)/vote",
-            body: [
-                "comment" : comment,
-                "value"  : rating
-            ]
-        ).sendSync().getResponseBody()
+    func vote(pid: String, vid : String, comment: String, rating : Int) {
+        AFTVClient.vote(pid, vid: vid, comment: comment, rating: rating)
     }
     
     // Make a first REST call to get the initial state of the contest
-    func refreshUI(pid : String) throws {
+    func refreshUI(pid : String) {
         ratingSlider.value = 0
-        // RestClient sync get
-        var entry = try RestClient.get(
-            hostname: "localhost",
-            port: "8080",
-            uri: "/aftv-backend/v1/contest/\(PID)/nowPlaying"
-        ).sendSync().getResponseBody() as! Dictionary<String, Any>
         
-        titleLabel.text = "Not active";
-        currentId = nil;
+        let entry = AFTVClient.getCurrentlyPlaying(pid)
+        let href  = entry.imageHref
         
-        // Update title and artist
-        var title = "Untitled"
-        if(entry["title"] != nil) {
-            title = entry["title"] as! String
-        }
-        var artist = "Anonymous"
-        if (entry["artist"] != nil) {
-            artist = entry["artist"] as! String
+        if (href != nil && !href!.isEmpty) {
+            thumbnailImage.image = UIImage(data: AFTVClient.getImage(href!)!)
         }
         
-        // Update thumbnail image
-        let links = entry["links"] as! Array<Any>
-        var href = ""
-        for link in links {
-            var obj = link as! Dictionary<String, Any>
-            if obj["rel"] as! String == "thumbnail" {
-                href = obj["href"] as! String
-                break
-            }
-        }
-        if (!href.isEmpty) {
-            changeImageAsync(href)
-        }
-        
-        titleLabel.text = "\(artist)- \(title)"
-        currentId = entry["uuid"] as? String
+        titleLabel.text = "\(entry.artist!)- \(entry.title!)"
+        currentId = entry.uuid
     }
     
     // On websocket message, update the app
     func updateUI(response : String) {
-        var json = NBJSON.Parser.parseJson(response)! as! Dictionary<String, Any>
-        NBJSON.Utils.printJson(json)
+        let event = NBJSON.Parser.parseJson(response)! as! Dictionary<String, Any>
+        NBJSON.Utils.printJson(event)
         
-        // Update title and artist
-        var entry = json["contestEntry"] as! Dictionary<String, Any>
-        var title = "Untitled"
-        if(entry["title"] != nil) {
-            title = entry["title"] as! String
-        }
-        var artist = "Anonymous"
-        if (entry["artist"] != nil) {
-            artist = entry["artist"] as! String
-        }
- 
-        // Update thumbnail image
-        let links = entry["links"] as! Array<Any>
-        var href = ""
-        for link in links {
-            var obj = link as! Dictionary<String, Any>
-            if obj["rel"] as! String == "thumbnail" {
-                href = obj["href"] as! String
-                break
-            }
-        }
-        if (!href.isEmpty) {
-            changeImageAsync(href)
+        let eventObj = AFTVClient.parseEvent(event)
+        let entry    = eventObj.entry
+        let href     = entry?.imageHref
+        
+        if (href != nil) {
+            thumbnailImage.image = UIImage(data: AFTVClient.getImage(href!)!)
         }
         
-        titleLabel.text = "\(artist)- \(title)"
-        currentId = entry["uuid"] as? String
-
-        //refreshUI(PID);
-    }
-    
-    func changeImageAsync(urlString: String) {
-        let url = NSURL(string: urlString)
-        let request = NSURLRequest(URL: url!)
-        let view = self
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-            if (error != nil || data == nil) {
-                print("ERROR: \(error?.description)")
-            }
-            view.thumbnailImage.image = UIImage(data: data!)
-        }
+        titleLabel.text = "\(entry!.artist!)- \(entry!.title!)"
+        currentId = entry?.uuid
     }
     
     func getQueue() -> String {

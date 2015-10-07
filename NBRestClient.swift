@@ -20,7 +20,7 @@ func createQueryString(pairs: Dictionary<String, AnyObject>) -> String {
     return query
 }
 
-class RestClient {
+class NBRestClient {
     var request : NSMutableURLRequest = NSMutableURLRequest()
     var responseBody : Any?
     var error : NSError!
@@ -66,38 +66,42 @@ class RestClient {
         }
     }
     
-    func addHeader(key : String, value : String) -> RestClient {
+    func addHeader(key : String, value : String) -> NBRestClient {
         request.addValue(value, forHTTPHeaderField: key)
         return self
     }
     
-    class func get(hostname hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
-        return RestClient(method: "GET", hostname: hostname, port: port, uri: uri, headers: headers, body: query, ssl: ssl)
+    class func get(hostname hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> NBRestClient {
+        return NBRestClient(method: "GET", hostname: hostname, port: port, uri: uri, headers: headers, body: query, ssl: ssl)
     }
     
-    class func put(hostname hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
-        return RestClient(method: "PUT", hostname: hostname, port: port, uri: uri, headers: headers, body: body, ssl: ssl)
+    class func put(hostname hostname : String, port : String = "", uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> NBRestClient {
+        return NBRestClient(method: "PUT", hostname: hostname, port: port, uri: uri, headers: headers, body: body, ssl: ssl)
     }
     
-    class func post(hostname hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
-        return RestClient(method: "POST", hostname: hostname, port: port, uri: uri, headers: headers, body: body, ssl: ssl)
+    class func post(hostname hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], body : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> NBRestClient {
+        return NBRestClient(method: "POST", hostname: hostname, port: port, uri: uri, headers: headers, body: body, ssl: ssl)
     }
     
-    class func delete(hostname hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> RestClient {
-        return RestClient(method: "DELETE", hostname: hostname, port: port, uri: uri, headers: headers, body: query, ssl: ssl)
+    class func delete(hostname hostname : String, port : String, uri : String, headers : Dictionary<String, String> = [:], query : Dictionary<String, AnyObject> = [:], ssl : Bool = false) -> NBRestClient {
+        return NBRestClient(method: "DELETE", hostname: hostname, port: port, uri: uri, headers: headers, body: query, ssl: ssl)
     }
     
-    func sendSync() throws -> RestClient {
-        let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
-        
-        let jsonString : String = String(data: data, encoding: NSUTF8StringEncoding)!
-        self.responseBody = NBJSON.Parser.parseJson(jsonString)
-        self.completed = true
-        
-        return self
+    func sendSync() -> NBRestClient {
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let jsonString : String = String(data: data, encoding: NSUTF8StringEncoding)!
+            self.responseBody = NBJSON.Parser.parseJson(jsonString)
+            self.completed = true
+            
+            return self
+        } catch let error as NSError {
+            print(error.description)
+            return self
+        }
     }
     
-    func sendAsync() -> RestClient {
+    func sendAsync() -> NBRestClient {
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             if (error != nil || data == nil) {
                 print("ERROR: \(error?.description)")

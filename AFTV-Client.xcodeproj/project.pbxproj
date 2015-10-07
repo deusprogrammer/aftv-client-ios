@@ -13,7 +13,8 @@
 		5934421D1A6287C100864806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5934421B1A6287C100864806 /* Main.storyboard */; };
 		593442221A6287C100864806 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593442201A6287C100864806 /* LaunchScreen.xib */; };
 		5934422E1A6287C100864806 /* AFTV_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934422D1A6287C100864806 /* AFTV_TestTests.swift */; };
-		5934423A1A628D8900864806 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442391A628D8900864806 /* RestClient.swift */; };
+		5934423A1A628D8900864806 /* NBRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593442391A628D8900864806 /* NBRestClient.swift */; };
+		597172C41BC4D08D00395A23 /* AFTVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597172C31BC4D08D00395A23 /* AFTVClient.swift */; settings = {ASSET_TAGS = (); }; };
 		599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33141A6D8E6100FB44FA /* Gobot.swift */; };
 		599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */; };
 		59EF57381AE6EE1F00671600 /* NBJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF57371AE6EE1F00671600 /* NBJson.swift */; };
@@ -40,7 +41,8 @@
 		593442271A6287C100864806 /* AFTV-ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFTV-ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5934422C1A6287C100864806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5934422D1A6287C100864806 /* AFTV_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTV_TestTests.swift; sourceTree = "<group>"; };
-		593442391A628D8900864806 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		593442391A628D8900864806 /* NBRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBRestClient.swift; sourceTree = "<group>"; };
+		597172C31BC4D08D00395A23 /* AFTVClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFTVClient.swift; sourceTree = "<group>"; };
 		599D33141A6D8E6100FB44FA /* Gobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gobot.swift; sourceTree = "<group>"; };
 		599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarscreamAdapter.swift; sourceTree = "<group>"; };
 		59EF57371AE6EE1F00671600 /* NBJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBJson.swift; sourceTree = "<group>"; };
@@ -68,11 +70,12 @@
 		593442091A6287C100864806 = {
 			isa = PBXGroup;
 			children = (
+				597172C31BC4D08D00395A23 /* AFTVClient.swift */,
 				593372F61BC36C7700DFDB45 /* Starscream.framework */,
 				59EF57371AE6EE1F00671600 /* NBJson.swift */,
 				599D33141A6D8E6100FB44FA /* Gobot.swift */,
 				599D33491A6D8FD000FB44FA /* StarscreamAdapter.swift */,
-				593442391A628D8900864806 /* RestClient.swift */,
+				593442391A628D8900864806 /* NBRestClient.swift */,
 				593442141A6287C100864806 /* AFTV-Client */,
 				5934422A1A6287C100864806 /* AFTV-ClientTests */,
 				593442131A6287C100864806 /* Products */,
@@ -225,12 +228,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5934423A1A628D8900864806 /* RestClient.swift in Sources */,
+				5934423A1A628D8900864806 /* NBRestClient.swift in Sources */,
 				5934421A1A6287C100864806 /* ViewController.swift in Sources */,
 				599D334A1A6D8FD000FB44FA /* StarscreamAdapter.swift in Sources */,
 				59EF57381AE6EE1F00671600 /* NBJson.swift in Sources */,
 				599D33151A6D8E6100FB44FA /* Gobot.swift in Sources */,
 				593442181A6287C100864806 /* AppDelegate.swift in Sources */,
+				597172C41BC4D08D00395A23 /* AFTVClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
